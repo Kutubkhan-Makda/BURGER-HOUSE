@@ -1,0 +1,231 @@
+body{
+	font-family: copper black;
+}
+
+.card{
+    border: none;
+}
+
+.card-title{
+    text-align: center;
+}
+
+.card-text{
+    text-align: center;
+}
+
+.container{
+    color: rgb(59, 7, 7);
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+}
+
+.dot {
+    height: 20px;
+    width: 20px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+.page-item{
+    padding: 3px;
+  }
+
+button:hover{
+	transition: 0.5s;
+	transform: scale(1.1);
+}
+
+.b1{
+	background-color: yellow;
+	border: none;
+	font-size: 1vm;
+	padding: 0.7vm 1.5vm;
+	margin: 1vm 1vm;
+	text-decoration: none;
+}
+
+
+.box:hover{
+	transition: 0.5s;
+	transform: scale(1.12);
+  }
+
+.box1:hover{
+	transition: 0.5s;
+	transform: scale(1.05);
+	box-shadow: 0px 10px 20px rgba(0,0,0,0.4);
+  }
+
+
+  @import "compass/css3";
+
+@import 'compass';
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+
+
+
+/* Base Styles */
+
+html {
+	font-size: 100%;
+	font-family: "Nunito", Arial, sans-serif;
+	font-weight: normal;
+	line-height: 1.5;
+	-webkit-font-smoothing: antialiased;
+}
+
+a {
+	color:rgb(59, 7, 7);
+	opacity: 1;
+	text-decoration: none;
+}
+
+li{
+    display: inline;
+    padding: 1rem;
+    text-decoration: none;
+}
+
+.content {
+	text-align: center;
+	margin-top: 2em;
+}
+
+
+/* Header */
+
+.header {
+	position: relative;
+	width: 100%;
+	background: $navbar-bg;
+	height: 50px;
+	box-shadow: 0 -3px 0 darken($navbar-bg, 10%) inset;
+}
+
+.wrap {
+	max-width: 960px; /* Changge this with your max-width size */
+	margin: 0 auto;
+}
+
+
+/* Mobile menu */
+#menu-icon {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: 1em;
+	color: $white;
+	text-decoration: none;
+	font-weight: bold;
+	cursor: pointer;
+	opacity: 1;
+	padding: 0 0.4em;
+
+	&:hover {
+		opacity: 0.85;
+		text-decoration: none;
+		border: none;
+	}
+}
+
+.navbar {
+	background-color: $navbar-bg;
+	float: none;
+	max-height: 0;
+	overflow: hidden;
+	@include transition(max-height .4s);
+
+	.menu {
+		margin: 0;
+		padding: 0;
+		list-style-type: none;
+
+		li {
+			list-style-type: none;
+			display: block;
+		
+			a {
+				display: block;
+				text-decoration: none;
+				color: $white;
+				padding: 0 0.8em;
+				@include transition(all 0.2s ease);
+				border-bottom: 1px solid lighten($navbar-bg, 12%);
+
+				&:hover {
+					background-color: lighten($navbar-bg, 15%);
+					
+				}
+
+				&.active {
+					background-color: lighten($navbar-bg, 10%);
+					
+				}
+			}
+		}
+	}
+}
+
+//increase the max-height if you add more links.
+.expand {
+	max-height: 20em;
+}
+
+@media only screen and (min-width : 768px) {
+
+	.wrap {
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+	
+	.logo {
+		margin-left: 0;
+	}
+
+	.logo, .navbar {
+		display: inline-block;
+	}
+
+	/* Mobile menu icon */
+	#menu-icon {
+		display: none;
+	}
+
+	.navbar {
+		float: right;
+		max-height: none;
+		
+		.menu {
+			box-shadow: 0 -3px 0 darken($navbar-bg, 10%) inset;
+			li {
+				list-style-type: none;
+				display: inline-block;
+				text-align: center;
+				
+				a {
+					display: block;
+					border-bottom: 0;
+
+					&:hover {
+						box-shadow: 0 -3px 0 $navbar-bg inset;
+					}
+
+					&.active {
+						box-shadow: 0 -3px 0 $navbar-bg inset;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+
+$(document).ready(function(){
+    $('#menu-icon').on('click', function(){
+      $('.navbar').toggleClass('expand');
+      return false;
+    });
+  });
